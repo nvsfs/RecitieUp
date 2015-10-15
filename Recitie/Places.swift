@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Place {
+class Places {
     
     var latitude:String = ""
     var longitude:String = ""
