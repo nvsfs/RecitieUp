@@ -14,6 +14,12 @@
 		9A80B6071BCEA9A70028F6D2 /* EventosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A80B6061BCEA9A70028F6D2 /* EventosViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		9A80B6091BCEADD90028F6D2 /* DetalheEventosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A80B6081BCEADD90028F6D2 /* DetalheEventosViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		9A80B60B1BCEB9610028F6D2 /* RepositorioEvento.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A80B60A1BCEB9610028F6D2 /* RepositorioEvento.swift */; settings = {ASSET_TAGS = (); }; };
+		9AE803C51BD01245003914FF /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE803C41BD01245003914FF /* MapViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		9AE803C71BD01AE0003914FF /* PopUpViewControllerSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE803C61BD01AE0003914FF /* PopUpViewControllerSwift.swift */; settings = {ASSET_TAGS = (); }; };
+		9AE803C91BD01B01003914FF /* PopUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AE803C81BD01B01003914FF /* PopUpViewController.xib */; settings = {ASSET_TAGS = (); }; };
+		9AE803CB1BD01B0E003914FF /* PopUpViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AE803CA1BD01B0E003914FF /* PopUpViewController_iPad.xib */; settings = {ASSET_TAGS = (); }; };
+		9AE803CF1BD01EE3003914FF /* PopUpViewController_iPhone6.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AE803CD1BD01EE3003914FF /* PopUpViewController_iPhone6.xib */; settings = {ASSET_TAGS = (); }; };
+		9AE803D01BD01EE3003914FF /* PopUpViewController_iPhone6Plus.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AE803CE1BD01EE3003914FF /* PopUpViewController_iPhone6Plus.xib */; settings = {ASSET_TAGS = (); }; };
 		9AFC1C351BCC829C00E76E09 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFC1C341BCC829C00E76E09 /* AppDelegate.swift */; };
 		9AFC1C371BCC829C00E76E09 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFC1C361BCC829C00E76E09 /* ViewController.swift */; };
 		9AFC1C3A1BCC829C00E76E09 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9AFC1C381BCC829C00E76E09 /* Main.storyboard */; };
@@ -23,7 +29,7 @@
 		9AFC1C551BCC829D00E76E09 /* RecitieUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFC1C541BCC829D00E76E09 /* RecitieUITests.swift */; };
 		9AFC1C661BCC838A00E76E09 /* Interest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFC1C651BCC838A00E76E09 /* Interest.swift */; settings = {ASSET_TAGS = (); }; };
 		9AFC1C681BCC844200E76E09 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFC1C671BCC844200E76E09 /* Event.swift */; settings = {ASSET_TAGS = (); }; };
-		9AFC1C6A1BCC84CB00E76E09 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFC1C691BCC84CA00E76E09 /* Place.swift */; settings = {ASSET_TAGS = (); }; };
+		9AFC1C6A1BCC84CB00E76E09 /* Places.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFC1C691BCC84CA00E76E09 /* Places.swift */; settings = {ASSET_TAGS = (); }; };
 		9AFC1C711BCC868600E76E09 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AFC1C6E1BCC868600E76E09 /* FBSDKCoreKit.framework */; settings = {ASSET_TAGS = (); }; };
 		9AFC1C721BCC868600E76E09 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AFC1C6F1BCC868600E76E09 /* FBSDKLoginKit.framework */; settings = {ASSET_TAGS = (); }; };
 		9AFC1C731BCC868600E76E09 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AFC1C701BCC868600E76E09 /* FBSDKShareKit.framework */; settings = {ASSET_TAGS = (); }; };
@@ -55,6 +61,12 @@
 		9A80B6061BCEA9A70028F6D2 /* EventosViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventosViewController.swift; sourceTree = "<group>"; };
 		9A80B6081BCEADD90028F6D2 /* DetalheEventosViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetalheEventosViewController.swift; sourceTree = "<group>"; };
 		9A80B60A1BCEB9610028F6D2 /* RepositorioEvento.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositorioEvento.swift; sourceTree = "<group>"; };
+		9AE803C41BD01245003914FF /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		9AE803C61BD01AE0003914FF /* PopUpViewControllerSwift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpViewControllerSwift.swift; sourceTree = "<group>"; };
+		9AE803C81BD01B01003914FF /* PopUpViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopUpViewController.xib; sourceTree = "<group>"; };
+		9AE803CA1BD01B0E003914FF /* PopUpViewController_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopUpViewController_iPad.xib; sourceTree = "<group>"; };
+		9AE803CD1BD01EE3003914FF /* PopUpViewController_iPhone6.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopUpViewController_iPhone6.xib; sourceTree = "<group>"; };
+		9AE803CE1BD01EE3003914FF /* PopUpViewController_iPhone6Plus.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopUpViewController_iPhone6Plus.xib; sourceTree = "<group>"; };
 		9AFC1C311BCC829C00E76E09 /* Recitie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Recitie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9AFC1C341BCC829C00E76E09 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9AFC1C361BCC829C00E76E09 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -70,7 +82,7 @@
 		9AFC1C561BCC829D00E76E09 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9AFC1C651BCC838A00E76E09 /* Interest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Interest.swift; sourceTree = "<group>"; };
 		9AFC1C671BCC844200E76E09 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
-		9AFC1C691BCC84CA00E76E09 /* Place.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
+		9AFC1C691BCC84CA00E76E09 /* Places.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Places.swift; sourceTree = "<group>"; };
 		9AFC1C6E1BCC868600E76E09 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		9AFC1C6F1BCC868600E76E09 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		9AFC1C701BCC868600E76E09 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
@@ -105,9 +117,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9AE803CC1BD01B1D003914FF /* PopUp */ = {
+			isa = PBXGroup;
+			children = (
+				9AE803C61BD01AE0003914FF /* PopUpViewControllerSwift.swift */,
+				9AE803C81BD01B01003914FF /* PopUpViewController.xib */,
+				9AE803CD1BD01EE3003914FF /* PopUpViewController_iPhone6.xib */,
+				9AE803CE1BD01EE3003914FF /* PopUpViewController_iPhone6Plus.xib */,
+				9AE803CA1BD01B0E003914FF /* PopUpViewController_iPad.xib */,
+			);
+			name = PopUp;
+			sourceTree = "<group>";
+		};
 		9AFC1C281BCC829C00E76E09 = {
 			isa = PBXGroup;
 			children = (
+				9AE803CC1BD01B1D003914FF /* PopUp */,
 				9A80B60A1BCEB9610028F6D2 /* RepositorioEvento.swift */,
 				9AFC1C6D1BCC865300E76E09 /* Frameworks */,
 				9AFC1C621BCC82A300E76E09 /* Entities */,
@@ -135,6 +160,7 @@
 				9AFC1C341BCC829C00E76E09 /* AppDelegate.swift */,
 				9AFC1C361BCC829C00E76E09 /* ViewController.swift */,
 				9AFC1C381BCC829C00E76E09 /* Main.storyboard */,
+				9AE803C41BD01245003914FF /* MapViewController.swift */,
 				9A80B6081BCEADD90028F6D2 /* DetalheEventosViewController.swift */,
 				9A80B6061BCEA9A70028F6D2 /* EventosViewController.swift */,
 				9AFC1C3B1BCC829C00E76E09 /* Assets.xcassets */,
@@ -169,7 +195,7 @@
 			children = (
 				9AFC1C651BCC838A00E76E09 /* Interest.swift */,
 				9AFC1C671BCC844200E76E09 /* Event.swift */,
-				9AFC1C691BCC84CA00E76E09 /* Place.swift */,
+				9AFC1C691BCC84CA00E76E09 /* Places.swift */,
 				9A10AF021BCD4D6A000AE752 /* User.swift */,
 			);
 			name = Entities;
@@ -295,9 +321,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9AE803CB1BD01B0E003914FF /* PopUpViewController_iPad.xib in Resources */,
 				9AFC1C3F1BCC829C00E76E09 /* LaunchScreen.storyboard in Resources */,
 				9AFC1C3C1BCC829C00E76E09 /* Assets.xcassets in Resources */,
+				9AE803D01BD01EE3003914FF /* PopUpViewController_iPhone6Plus.xib in Resources */,
 				9AFC1C3A1BCC829C00E76E09 /* Main.storyboard in Resources */,
+				9AE803C91BD01B01003914FF /* PopUpViewController.xib in Resources */,
+				9AE803CF1BD01EE3003914FF /* PopUpViewController_iPhone6.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -327,10 +357,12 @@
 				9A10AEFF1BCD33A8000AE752 /* CadastroViewController.swift in Sources */,
 				9A80B60B1BCEB9610028F6D2 /* RepositorioEvento.swift in Sources */,
 				9AFC1C371BCC829C00E76E09 /* ViewController.swift in Sources */,
+				9AE803C71BD01AE0003914FF /* PopUpViewControllerSwift.swift in Sources */,
 				9AFC1C351BCC829C00E76E09 /* AppDelegate.swift in Sources */,
 				9A80B6091BCEADD90028F6D2 /* DetalheEventosViewController.swift in Sources */,
+				9AE803C51BD01245003914FF /* MapViewController.swift in Sources */,
 				9A10AF031BCD4D6A000AE752 /* User.swift in Sources */,
-				9AFC1C6A1BCC84CB00E76E09 /* Place.swift in Sources */,
+				9AFC1C6A1BCC84CB00E76E09 /* Places.swift in Sources */,
 				9AFC1C661BCC838A00E76E09 /* Interest.swift in Sources */,
 				9AFC1C681BCC844200E76E09 /* Event.swift in Sources */,
 			);

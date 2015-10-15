@@ -22,7 +22,7 @@ class CadastroViewController:UIViewController{
    
     @IBAction func saveButton(sender: AnyObject) {
         
-        let event:Event = Event()
+        let event: Event = Event()
 
         event.name = nameField.text!
         event.description = descriptionField.text!

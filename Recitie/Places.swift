@@ -6,15 +6,18 @@
 //  Copyright © 2015 Natalia. All rights reserved.
 //
 
-import Foundation
+import MapKit
+import UIKit
 
-class Places {
-    
-    var latitude:String = ""
-    var longitude:String = ""
-    var description:String = ""
+class Places: NSObject, MKAnnotation {
+    var title: String?
+    var coordinate: CLLocationCoordinate2D
+    var info: String
     var events = [Event]()
-    var status:Bool = false
     
-    
+    init(title: String, coordinate: CLLocationCoordinate2D, info: String) {
+        self.title = title
+        self.coordinate = coordinate
+        self.info = info
+    }
 }

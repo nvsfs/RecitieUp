@@ -57,8 +57,35 @@ class EventosViewController: UIViewController,  UITableViewDataSource, UITableVi
         }
         }
     }
+    var popViewController : PopUpViewControllerSwift = PopUpViewControllerSwift(nibName: "PopUpViewController", bundle: nil)
     
     
+    @IBAction func tedte(sender: AnyObject) {
+        
+        //        if (UIDevice.currentDevice().userInterfaceIdiom == .Pad)
+        //        {
+        //            self.popViewController = PopUpViewControllerSwift(nibName: "PopUpViewController_iPad", bundle: nil)
+        //            self.popViewController.title = "This is a popup view"
+        //            self.popViewController.showInView(self.view, withImage: UIImage(named: "typpzDemo"), withMessage: "You just triggered a great popup window", animated: true)
+        //        } else
+        //{
+        if UIScreen.mainScreen().bounds.size.width > 320 {
+            if UIScreen.mainScreen().scale == 3 {
+                self.popViewController = PopUpViewControllerSwift(nibName: "PopUpViewController_iPhone6Plus", bundle: nil)
+                self.popViewController.title = "This is a popup view"
+                self.popViewController.showInView(self.view, withImage: UIImage(named: "typpzDemo"), withMessage: "iphone 6+", animated: true)
+            } else {
+                self.popViewController = PopUpViewControllerSwift(nibName: "PopUpViewController_iPhone6", bundle: nil)
+                self.popViewController.title = " esse é o 6"
+                self.popViewController.showInView(self.view, withImage: UIImage(named: "typpzDemo"), withMessage: "esse é o 6", animated: true)
+            }
+        } else {
+            self.popViewController = PopUpViewControllerSwift(nibName: "PopUpViewController", bundle: nil)
+            self.popViewController.title = "This is a popup view"
+            self.popViewController.showInView(self.view, withImage: UIImage(named: "typpzDemo"), withMessage: "You just triggered a great popup window", animated: true)
+        }
+        // }
+    }
     
     
     func recieveEvent(sender: NSNotification) {
