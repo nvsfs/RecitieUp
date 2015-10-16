@@ -31,31 +31,31 @@ class EventosViewController: UIViewController,  UITableViewDataSource, UITableVi
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "recieveEvent:", name: "eventPosted", object: nil)
 
         
-//        let container = CKContainer.defaultContainer()
-//        let publicData = container.publicCloudDatabase
-//        
-//        let query = CKQuery(recordType: "Events", predicate: NSPredicate(format: "TRUEPREDICATE", argumentArray: nil))
-//        publicData.performQuery(query, inZoneWithID: nil){ results, error in
-//            
-//            if error == nil {
-//                
-//                for event in results! {
-//                    let newEvent = Event()
-//                    newEvent.name = event["name"] as! String
-//                    newEvent.description = event["description"] as! String
-//                    
-//                    
-//                    self.events.append(newEvent)
-//                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
-//                        self.eventostableview.reloadData()
-//                    
-//                })
-//            }
-//        }
-//            else {
-//            
-//        }
-//        }
+        let container = CKContainer.defaultContainer()
+        let publicData = container.publicCloudDatabase
+        
+        let query = CKQuery(recordType: "Events", predicate: NSPredicate(format: "TRUEPREDICATE", argumentArray: nil))
+        publicData.performQuery(query, inZoneWithID: nil){ results, error in
+            
+            if error == nil {
+                
+                for event in results! {
+                    let newEvent = Event()
+                    newEvent.name = event["name"] as! String
+                    newEvent.description = event["description"] as! String
+                    
+                    
+                    self.events.append(newEvent)
+                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                        self.eventostableview.reloadData()
+                    
+                })
+            }
+        }
+            else {
+            
+            }
+        }
     }
     var popViewController : PopUpViewControllerSwift = PopUpViewControllerSwift(nibName: "PopUpViewController", bundle: nil)
     
@@ -89,24 +89,24 @@ class EventosViewController: UIViewController,  UITableViewDataSource, UITableVi
     
     
     func recieveEvent(sender: NSNotification) {
-//    
-//        let container = CKContainer.defaultContainer()
-//        let publicData = container.publicCloudDatabase
+    
+        let container = CKContainer.defaultContainer()
+        let publicData = container.publicCloudDatabase
         
         let info = sender.userInfo!
         let event = info["event"] as! Event
         events.append(event)
         
         
-//        let record = CKRecord(recordType: "Events")
-//        record.setValue(event.name, forKey: "name")
-//        record.setValue(event.description, forKey: "description")
-//        
-//        publicData.saveRecord(record, completionHandler: { record, error in
-//            if error != nil{
-//                print(error)
-//            }
-//        })
+        let record = CKRecord(recordType: "Events")
+        record.setValue(event.name, forKey: "name")
+        record.setValue(event.description, forKey: "description")
+        
+        publicData.saveRecord(record, completionHandler: { record, error in
+            if error != nil{
+                print(error)
+            }
+        })
         
         
         eventostableview.reloadData()

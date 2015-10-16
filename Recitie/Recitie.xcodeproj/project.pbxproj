@@ -13,6 +13,7 @@
 		9A80B6071BCEA9A70028F6D2 /* EventosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A80B6061BCEA9A70028F6D2 /* EventosViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		9A80B6091BCEADD90028F6D2 /* DetalheEventosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A80B6081BCEADD90028F6D2 /* DetalheEventosViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		9A80B60B1BCEB9610028F6D2 /* RepositorioEvento.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A80B60A1BCEB9610028F6D2 /* RepositorioEvento.swift */; settings = {ASSET_TAGS = (); }; };
+		9A84C2101BD1636B00776DC3 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A84C20F1BD1636B00776DC3 /* CloudKit.framework */; };
 		9AE803C51BD01245003914FF /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE803C41BD01245003914FF /* MapViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		9AE803C71BD01AE0003914FF /* PopUpViewControllerSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE803C61BD01AE0003914FF /* PopUpViewControllerSwift.swift */; settings = {ASSET_TAGS = (); }; };
 		9AE803C91BD01B01003914FF /* PopUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AE803C81BD01B01003914FF /* PopUpViewController.xib */; settings = {ASSET_TAGS = (); }; };
@@ -59,6 +60,7 @@
 		9A80B6061BCEA9A70028F6D2 /* EventosViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventosViewController.swift; sourceTree = "<group>"; };
 		9A80B6081BCEADD90028F6D2 /* DetalheEventosViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetalheEventosViewController.swift; sourceTree = "<group>"; };
 		9A80B60A1BCEB9610028F6D2 /* RepositorioEvento.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositorioEvento.swift; sourceTree = "<group>"; };
+		9A84C20F1BD1636B00776DC3 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		9AE803C41BD01245003914FF /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		9AE803C61BD01AE0003914FF /* PopUpViewControllerSwift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpViewControllerSwift.swift; sourceTree = "<group>"; };
 		9AE803C81BD01B01003914FF /* PopUpViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopUpViewController.xib; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9AFC1C721BCC868600E76E09 /* FBSDKLoginKit.framework in Frameworks */,
+				9A84C2101BD1636B00776DC3 /* CloudKit.framework in Frameworks */,
 				9AFC1C711BCC868600E76E09 /* FBSDKCoreKit.framework in Frameworks */,
 				9AFC1C731BCC868600E76E09 /* FBSDKShareKit.framework in Frameworks */,
 			);
@@ -201,6 +204,7 @@
 		9AFC1C6D1BCC865300E76E09 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9A84C20F1BD1636B00776DC3 /* CloudKit.framework */,
 				9AFC1C6E1BCC868600E76E09 /* FBSDKCoreKit.framework */,
 				9AFC1C6F1BCC868600E76E09 /* FBSDKLoginKit.framework */,
 				9AFC1C701BCC868600E76E09 /* FBSDKShareKit.framework */,
@@ -275,10 +279,10 @@
 				TargetAttributes = {
 					9AFC1C301BCC829C00E76E09 = {
 						CreatedOnToolsVersion = 7.0.1;
-						DevelopmentTeam = W3Y27JHJ78;
+						DevelopmentTeam = WR548N7DYT;
 						SystemCapabilities = {
 							com.apple.iCloud = {
-								enabled = 0;
+								enabled = 1;
 							};
 						};
 					};
@@ -502,6 +506,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Recitie/Recitie.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -520,6 +525,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Recitie/Recitie.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (

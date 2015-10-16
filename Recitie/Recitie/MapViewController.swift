@@ -9,6 +9,7 @@
 import UIKit
 import CoreLocation
 import MapKit
+import CloudKit
 
 class MapViewController : UIViewController, CLLocationManagerDelegate, UIPopoverPresentationControllerDelegate {
     
@@ -21,46 +22,80 @@ class MapViewController : UIViewController, CLLocationManagerDelegate, UIPopover
     
     @IBOutlet var teste: UILongPressGestureRecognizer!
     
+    
+    
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)!
     }
+    
+    
+    
     
     override init(nibName nibNameOrNil: String!, bundle nibBundleOrNil: NSBundle!) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
     
+    var places:[Places] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         
-        //PopUp
-
-//        self.view.backgroundColor = UIColor().colorWithAlphaComponent(0.6)
-//        self.popViewController.layer
-//
+        let container = CKContainer.defaultContainer()
+        let publicData = container.publicCloudDatabase
+        
+        
+        let query = CKQuery(recordType: "Place", predicate: NSPredicate(format: "TRUEPREDICATE", argumentArray: nil))
+        
+        publicData.performQuery(query, inZoneWithID: nil, completionHandler: { results, error in
+            
+            if error == nil {
+                
+                for place in results! {
+                    
+                    
+                    let longitude:Double = place["longitude"] as! Double
+                    let latitude:Double = place["latitude"] as! Double
+                    let coordinate:CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+                    
+                    
+                    let newPlace = Places(title: place["name"] as! String, coordinate: coordinate, info: place["description"] as! String)
+                    
+                    
+                    self.places.append(newPlace)
+                    dispatch_async(
+                        dispatch_get_main_queue(), {()-> Void in
+                            self.mapView.addAnnotation(newPlace)
+                            self.mapView.reloadInputViews()
+                            
+                    })
+                    
+                }
+            }else {
+                
+            }
+        })
+        
+        
         //Mapa
         
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
         
-        //Criando os pinos do mapa
-        let london = Places(title: "London", coordinate: CLLocationCoordinate2D(latitude: 51.507222, longitude: -0.1275), info: "Home to the 2012 Summer Olympics.")
-        let oslo = Places(title: "Oslo", coordinate: CLLocationCoordinate2D(latitude: 59.95, longitude: 10.75), info: "Founded over a thousand years ago.")
-        let paris = Places(title: "Paris", coordinate: CLLocationCoordinate2D(latitude: 48.8567, longitude: 2.3508), info: "Often called the City of Light.")
-        let rome = Places(title: "Rome", coordinate: CLLocationCoordinate2D(latitude: 41.9, longitude: 12.5), info: "Has a whole country inside it.")
-        let washington = Places(title: "Washington DC", coordinate: CLLocationCoordinate2D(latitude: 38.895111, longitude: -77.036667), info: "Named after George himself.")
-        //Adicionando os pinos no mapa
-        mapView.addAnnotations([london, oslo, paris, rome, washington])
-        
-         NSNotificationCenter.defaultCenter().addObserver(self, selector: "recievePlace:", name: "newPlacePosted", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "recievePlace:", name: "newPlacePosted", object: nil)
         
     }
+    
+    //fim do viewDidLoad
     
     var pino:Places?
     
     func recievePlace (sender: NSNotification){
+        
+        
+        let container = CKContainer.defaultContainer()
+        let publicData = container.publicCloudDatabase
         
         let info = sender.userInfo!
         let place = info["newPlace"] as! Places
@@ -77,10 +112,22 @@ class MapViewController : UIViewController, CLLocationManagerDelegate, UIPopover
             let newPin = pino as! MKAnnotation
             //Places(title: newTitle, coordinate: locCoord, info: newSubtitle)
             self.mapView.addAnnotations([newPin])
+            
+            let record = CKRecord(recordType: "Place")
+            record.setValue(place.title, forKey: "name")
+            record.setValue(place.description, forKey: "description")
+            record.setValue(place.coordinate.latitude, forKey: "latitude")
+            record.setValue(place.coordinate.longitude, forKey: "longitude")
+            publicData.saveRecord(record, completionHandler: { record, error in
+                if error != nil {
+                    print(error)
+                }
+            })
+            
         }
-
-
-
+        
+        
+        
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -131,7 +178,7 @@ class MapViewController : UIViewController, CLLocationManagerDelegate, UIPopover
         if let resultController = storyboard!.instantiateViewControllerWithIdentifier("Events") as? EventosViewController {
             //presentViewController(resultController, animated: true, completion: nil)
             self.navigationController?.pushViewController(resultController, animated: true)
-
+            
         }
     }
     
@@ -181,10 +228,10 @@ class MapViewController : UIViewController, CLLocationManagerDelegate, UIPopover
         mapView.setRegion(region, animated: true)
     }
     
-
     
-  
-   
+    
+    
+    
     
     @IBAction func addPin(sender: UILongPressGestureRecognizer) {
         
@@ -201,45 +248,45 @@ class MapViewController : UIViewController, CLLocationManagerDelegate, UIPopover
         NSNotificationCenter.defaultCenter().postNotificationName("latitudePosted", object: self, userInfo: ["latitude": latitude])
         
         if sender.state == UIGestureRecognizerState.Began {
-           
-        
-        if (UIDevice.currentDevice().userInterfaceIdiom == .Pad)
-        {
-            self.popViewController = PopUpViewControllerSwift(nibName: "PopUpViewController_iPad", bundle: nil)
-            self.popViewController.title = "This is a popup view"
-            self.popViewController.showInView(self.view, withImage: UIImage(named: "typpzDemo"), withMessage: "You just triggered a great popup window", animated: true)
-        } else
-        {
-            if UIScreen.mainScreen().bounds.size.width > 320 {
-                if UIScreen.mainScreen().scale == 3 {
-                    self.popViewController = PopUpViewControllerSwift(nibName: "PopUpViewController_iPhone6Plus", bundle: nil)
-                    self.popViewController.title = "This is a popup view"
-                    self.popViewController.showInView(self.view, withImage: UIImage(named: "typpzDemo"), withMessage: "iphone 6+", animated: true)
-                } else {
-                    self.popViewController = PopUpViewControllerSwift(nibName: "PopUpViewController_iPhone6", bundle: nil)
-                    self.popViewController.title = " esse é o 6"
-                    self.popViewController.showInView(self.view, withImage: UIImage(named: "typpzDemo"), withMessage: "esse é o 6", animated: true)
-                }
-            } else {
-                self.popViewController = PopUpViewControllerSwift(nibName: "PopUpViewController", bundle: nil)
+            
+            
+            if (UIDevice.currentDevice().userInterfaceIdiom == .Pad)
+            {
+                self.popViewController = PopUpViewControllerSwift(nibName: "PopUpViewController_iPad", bundle: nil)
                 self.popViewController.title = "This is a popup view"
                 self.popViewController.showInView(self.view, withImage: UIImage(named: "typpzDemo"), withMessage: "You just triggered a great popup window", animated: true)
+            } else
+            {
+                if UIScreen.mainScreen().bounds.size.width > 320 {
+                    if UIScreen.mainScreen().scale == 3 {
+                        self.popViewController = PopUpViewControllerSwift(nibName: "PopUpViewController_iPhone6Plus", bundle: nil)
+                        self.popViewController.title = "This is a popup view"
+                        self.popViewController.showInView(self.view, withImage: UIImage(named: "typpzDemo"), withMessage: "iphone 6+", animated: true)
+                    } else {
+                        self.popViewController = PopUpViewControllerSwift(nibName: "PopUpViewController_iPhone6", bundle: nil)
+                        self.popViewController.title = " esse é o 6"
+                        self.popViewController.showInView(self.view, withImage: UIImage(named: "typpzDemo"), withMessage: "esse é o 6", animated: true)
+                    }
+                } else {
+                    self.popViewController = PopUpViewControllerSwift(nibName: "PopUpViewController", bundle: nil)
+                    self.popViewController.title = "This is a popup view"
+                    self.popViewController.showInView(self.view, withImage: UIImage(named: "typpzDemo"), withMessage: "You just triggered a great popup window", animated: true)
+                }
             }
+            //        self.viewDidLoad()
+            //
+            ////        let newTitle = "PINOOOOOOO"
+            ////        let newSubtitle = "Funcionaaaaa!!"
+            //            if pino == nil{
+            //            }
+            //            else {
+            //        let newPin = pino as! MKAnnotation
+            //            //Places(title: newTitle, coordinate: locCoord, info: newSubtitle)
+            //        self.mapView.addAnnotations([newPin])
+            //            }
+            //        }
+            
         }
-//        self.viewDidLoad()
-//            
-////        let newTitle = "PINOOOOOOO"
-////        let newSubtitle = "Funcionaaaaa!!"
-//            if pino == nil{
-//            }
-//            else {
-//        let newPin = pino as! MKAnnotation
-//            //Places(title: newTitle, coordinate: locCoord, info: newSubtitle)
-//        self.mapView.addAnnotations([newPin])
-//            }
-//        }
-    
-        }
-
+        
     }
-  }
+}
