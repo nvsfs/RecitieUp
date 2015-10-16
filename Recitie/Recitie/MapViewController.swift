@@ -121,13 +121,18 @@ class MapViewController : UIViewController, CLLocationManagerDelegate, UIPopover
     }
     
     func mapView(mapView: MKMapView!, annotationView view: MKAnnotationView!, calloutAccessoryControlTapped control: UIControl!) {
-        let capital = view.annotation as! Places
-        let placeName = capital.title
-        let placeInfo = capital.info
+        //let capital = view.annotation as! Places
+        //let placeName = capital.title
+        //let placeInfo = capital.info
         
-        let ac = UIAlertController(title: placeName, message: placeInfo, preferredStyle: .Alert)
-        ac.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
-        presentViewController(ac, animated: true, completion: nil)
+        //let ac = UIAlertController(title: placeName, message: placeInfo, preferredStyle: .Alert)
+        //ac.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+        //presentViewController(ac, animated: true, completion: nil)
+        if let resultController = storyboard!.instantiateViewControllerWithIdentifier("Events") as? EventosViewController {
+            //presentViewController(resultController, animated: true, completion: nil)
+            self.navigationController?.pushViewController(resultController, animated: true)
+
+        }
     }
     
     @IBOutlet var labelGPS: UILabel!
