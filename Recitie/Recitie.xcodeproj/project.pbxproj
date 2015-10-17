@@ -8,12 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		9A10AEFF1BCD33A8000AE752 /* CadastroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A10AEFE1BCD33A8000AE752 /* CadastroViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		9A10AF011BCD3F07000AE752 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A10AF001BCD3F07000AE752 /* Users.swift */; settings = {ASSET_TAGS = (); }; };
 		9A10AF031BCD4D6A000AE752 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A10AF021BCD4D6A000AE752 /* User.swift */; settings = {ASSET_TAGS = (); }; };
 		9A80B6071BCEA9A70028F6D2 /* EventosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A80B6061BCEA9A70028F6D2 /* EventosViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		9A80B6091BCEADD90028F6D2 /* DetalheEventosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A80B6081BCEADD90028F6D2 /* DetalheEventosViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		9A80B60B1BCEB9610028F6D2 /* RepositorioEvento.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A80B60A1BCEB9610028F6D2 /* RepositorioEvento.swift */; settings = {ASSET_TAGS = (); }; };
 		9A84C2101BD1636B00776DC3 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A84C20F1BD1636B00776DC3 /* CloudKit.framework */; };
+		9A84C2121BD1843C00776DC3 /* UsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A84C2111BD1843C00776DC3 /* UsersViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		9AE803C51BD01245003914FF /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE803C41BD01245003914FF /* MapViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		9AE803C71BD01AE0003914FF /* PopUpViewControllerSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE803C61BD01AE0003914FF /* PopUpViewControllerSwift.swift */; settings = {ASSET_TAGS = (); }; };
 		9AE803C91BD01B01003914FF /* PopUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AE803C81BD01B01003914FF /* PopUpViewController.xib */; settings = {ASSET_TAGS = (); }; };
@@ -55,12 +54,11 @@
 /* Begin PBXFileReference section */
 		9A10AEFB1BCD275E000AE752 /* Recitie.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Recitie.entitlements; sourceTree = "<group>"; };
 		9A10AEFE1BCD33A8000AE752 /* CadastroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CadastroViewController.swift; sourceTree = "<group>"; };
-		9A10AF001BCD3F07000AE752 /* Users.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
 		9A10AF021BCD4D6A000AE752 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		9A80B6061BCEA9A70028F6D2 /* EventosViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventosViewController.swift; sourceTree = "<group>"; };
 		9A80B6081BCEADD90028F6D2 /* DetalheEventosViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetalheEventosViewController.swift; sourceTree = "<group>"; };
-		9A80B60A1BCEB9610028F6D2 /* RepositorioEvento.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositorioEvento.swift; sourceTree = "<group>"; };
 		9A84C20F1BD1636B00776DC3 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		9A84C2111BD1843C00776DC3 /* UsersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UsersViewController.swift; path = ../UsersViewController.swift; sourceTree = "<group>"; };
 		9AE803C41BD01245003914FF /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		9AE803C61BD01AE0003914FF /* PopUpViewControllerSwift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpViewControllerSwift.swift; sourceTree = "<group>"; };
 		9AE803C81BD01B01003914FF /* PopUpViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopUpViewController.xib; sourceTree = "<group>"; };
@@ -129,11 +127,23 @@
 			name = PopUp;
 			sourceTree = "<group>";
 		};
+		9AE9DEDA1BD1C74D00527AAB /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				9A84C2111BD1843C00776DC3 /* UsersViewController.swift */,
+				9AFC1C361BCC829C00E76E09 /* ViewController.swift */,
+				9AE803C41BD01245003914FF /* MapViewController.swift */,
+				9A80B6081BCEADD90028F6D2 /* DetalheEventosViewController.swift */,
+				9A80B6061BCEA9A70028F6D2 /* EventosViewController.swift */,
+				9A10AEFE1BCD33A8000AE752 /* CadastroViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
 		9AFC1C281BCC829C00E76E09 = {
 			isa = PBXGroup;
 			children = (
 				9AE803CC1BD01B1D003914FF /* PopUp */,
-				9A80B60A1BCEB9610028F6D2 /* RepositorioEvento.swift */,
 				9AFC1C6D1BCC865300E76E09 /* Frameworks */,
 				9AFC1C621BCC82A300E76E09 /* Entities */,
 				9AFC1C331BCC829C00E76E09 /* Recitie */,
@@ -156,18 +166,13 @@
 		9AFC1C331BCC829C00E76E09 /* Recitie */ = {
 			isa = PBXGroup;
 			children = (
+				9AE9DEDA1BD1C74D00527AAB /* ViewControllers */,
 				9A10AEFB1BCD275E000AE752 /* Recitie.entitlements */,
 				9AFC1C341BCC829C00E76E09 /* AppDelegate.swift */,
-				9AFC1C361BCC829C00E76E09 /* ViewController.swift */,
 				9AFC1C381BCC829C00E76E09 /* Main.storyboard */,
-				9AE803C41BD01245003914FF /* MapViewController.swift */,
-				9A80B6081BCEADD90028F6D2 /* DetalheEventosViewController.swift */,
-				9A80B6061BCEA9A70028F6D2 /* EventosViewController.swift */,
 				9AFC1C3B1BCC829C00E76E09 /* Assets.xcassets */,
 				9AFC1C3D1BCC829C00E76E09 /* LaunchScreen.storyboard */,
 				9AFC1C401BCC829C00E76E09 /* Info.plist */,
-				9A10AEFE1BCD33A8000AE752 /* CadastroViewController.swift */,
-				9A10AF001BCD3F07000AE752 /* Users.swift */,
 			);
 			path = Recitie;
 			sourceTree = "<group>";
@@ -352,10 +357,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9A10AF011BCD3F07000AE752 /* Users.swift in Sources */,
 				9A80B6071BCEA9A70028F6D2 /* EventosViewController.swift in Sources */,
 				9A10AEFF1BCD33A8000AE752 /* CadastroViewController.swift in Sources */,
-				9A80B60B1BCEB9610028F6D2 /* RepositorioEvento.swift in Sources */,
+				9A84C2121BD1843C00776DC3 /* UsersViewController.swift in Sources */,
 				9AFC1C371BCC829C00E76E09 /* ViewController.swift in Sources */,
 				9AE803C71BD01AE0003914FF /* PopUpViewControllerSwift.swift in Sources */,
 				9AFC1C351BCC829C00E76E09 /* AppDelegate.swift in Sources */,

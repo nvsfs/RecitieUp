@@ -84,7 +84,7 @@ class EventosViewController: UIViewController,  UITableViewDataSource, UITableVi
             self.popViewController.title = "This is a popup view"
             self.popViewController.showInView(self.view, withImage: UIImage(named: "typpzDemo"), withMessage: "You just triggered a great popup window", animated: true)
         }
-        // }
+        
     }
     
     
@@ -139,7 +139,6 @@ class EventosViewController: UIViewController,  UITableViewDataSource, UITableVi
         
         let idxPath = eventostableview.indexPathForCell(sender as! UITableViewCell) as NSIndexPath?
         
-        //dtVC.numero = events[idxPath!.row].description
         dtVC.eventoteste = events[idxPath!.row]
 
         }

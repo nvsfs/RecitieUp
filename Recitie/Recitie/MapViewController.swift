@@ -40,7 +40,6 @@ class MapViewController : UIViewController, CLLocationManagerDelegate, UIPopover
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         let container = CKContainer.defaultContainer()
         let publicData = container.publicCloudDatabase
         
@@ -83,52 +82,73 @@ class MapViewController : UIViewController, CLLocationManagerDelegate, UIPopover
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "recievePlace:", name: "newPlacePosted", object: nil)
-        
+        //        NSNotificationCenter.defaultCenter().addObserver(self, selector: "recievePlace:", name: "newPlacePosted", object: nil)
     }
     
     //fim do viewDidLoad
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(true)
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "recievePlace:", name: "newPlacePosted", object: nil)
+        
+        
+        
+        
+    }
     
     var pino:Places?
     
     func recievePlace (sender: NSNotification){
         
         
-        let container = CKContainer.defaultContainer()
-        let publicData = container.publicCloudDatabase
+        //let container = CKContainer.defaultContainer()
+        //let publicData = container.publicCloudDatabase
         
         let info = sender.userInfo!
         let place = info["newPlace"] as! Places
         
         pino = place
         
-        self.viewDidLoad()
+        self.places.append(place)
+        dispatch_async(
+            dispatch_get_main_queue(), {()-> Void in
+                self.mapView.addAnnotation(self.pino!)
+                self.mapView.reloadInputViews()
+                
+        })
+        
+        
+        //self.mapView.reloadInputViews()
         
         //        let newTitle = "PINOOOOOOO"
         //        let newSubtitle = "Funcionaaaaa!!"
-        if pino == nil{
-        }
-        else {
-            let newPin = pino as! MKAnnotation
-            //Places(title: newTitle, coordinate: locCoord, info: newSubtitle)
-            self.mapView.addAnnotations([newPin])
-            
-            let record = CKRecord(recordType: "Place")
-            record.setValue(place.title, forKey: "name")
-            record.setValue(place.description, forKey: "description")
-            record.setValue(place.coordinate.latitude, forKey: "latitude")
-            record.setValue(place.coordinate.longitude, forKey: "longitude")
-            publicData.saveRecord(record, completionHandler: { record, error in
-                if error != nil {
-                    print(error)
-                }
-            })
-            
-        }
+        //if pino == nil{
+        //}
+        //else {
+        //  let newPin = pino as! MKAnnotation
+        //Places(title: newTitle, coordinate: locCoord, info: newSubtitle)
+        //self.mapView.dele
+        //self.mapView.addAnnotations([newPin])
+        
+        //            let record = CKRecord(recordType: "Place")
+        //            record.setValue(place.title, forKey: "name")
+        //            record.setValue(place.description, forKey: "description")
+        //            record.setValue(place.coordinate.latitude, forKey: "latitude")
+        //            record.setValue(place.coordinate.longitude, forKey: "longitude")
+        //            publicData.saveRecord(record, completionHandler: { record, error in
+        //                if error != nil {
+        //                    print(error)
+        //                }
+        //            })
+        
+        //}
         
         
         
     }
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -263,7 +283,7 @@ class MapViewController : UIViewController, CLLocationManagerDelegate, UIPopover
                         self.popViewController.title = "This is a popup view"
                         self.popViewController.showInView(self.view, withImage: UIImage(named: "typpzDemo"), withMessage: "iphone 6+", animated: true)
                     } else {
-                        self.popViewController = PopUpViewControllerSwift(nibName: "PopUpViewController_iPhone6", bundle: nil)
+                        self.popViewController = PopUpViewControllerSwift(nibName: "PopUpViewController_iPhone6Plus", bundle: nil)
                         self.popViewController.title = " esse é o 6"
                         self.popViewController.showInView(self.view, withImage: UIImage(named: "typpzDemo"), withMessage: "esse é o 6", animated: true)
                     }

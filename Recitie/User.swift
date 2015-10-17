@@ -11,8 +11,9 @@ import Foundation
 class User {
     
     var name: String = ""
-    //    var email: String = ""
-    var description: String = ""
+    var email: String = ""
+    var fotoUrl: String = ""
+    var id : String = ""
 //    var interests = [Interest]()
     
 
