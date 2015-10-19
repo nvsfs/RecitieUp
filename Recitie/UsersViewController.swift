@@ -38,13 +38,6 @@ class UsersViewController : UIViewController {
                     let email:String = user["email"] as! String
                     let id:String = user["id"] as! String
                     
-//                    let newUser = User()
-//                    newUser.email = email
-//                    newUser.name = name
-//                    newUser.fotoUrl = photoURL
-//                    newUser.id = id
-                    
-                    
                     print(name)
                     print(email)
                     print(id)
@@ -52,32 +45,14 @@ class UsersViewController : UIViewController {
                     self.emailLabel.text = email
                     self.load_image(photoURL)
                     
-                    
-                    
-                  
-                    
                 }
             }else {
                 
             }
         })
-
-        //NSNotificationCenter.defaultCenter().addObserver(self, selector: "recieveUser:", name: "userInfoPosted", object: nil)
-        
     }
-    
-//    func recieveUser (sender: NSNotification){
-//        
-//        let info = sender.userInfo!
-//        let userInfo = info["userInfo"] as! User?
-//        
-//        nameLabel.text = userInfo?.name
-//        emailLabel.text = userInfo?.email
-//        load_image((userInfo?.fotoUrl)!)
-//        print(userInfo?.fotoUrl)
-//    }
-    
-    
+
+
     
     
     func load_image(urlString:String)

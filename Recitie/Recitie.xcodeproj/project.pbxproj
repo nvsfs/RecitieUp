@@ -19,6 +19,7 @@
 		9AE803CB1BD01B0E003914FF /* PopUpViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AE803CA1BD01B0E003914FF /* PopUpViewController_iPad.xib */; settings = {ASSET_TAGS = (); }; };
 		9AE803CF1BD01EE3003914FF /* PopUpViewController_iPhone6.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AE803CD1BD01EE3003914FF /* PopUpViewController_iPhone6.xib */; settings = {ASSET_TAGS = (); }; };
 		9AE803D01BD01EE3003914FF /* PopUpViewController_iPhone6Plus.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AE803CE1BD01EE3003914FF /* PopUpViewController_iPhone6Plus.xib */; settings = {ASSET_TAGS = (); }; };
+		9AEE4DD41BD433BF00644522 /* PlacesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEE4DD31BD433BF00644522 /* PlacesViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		9AFC1C351BCC829C00E76E09 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFC1C341BCC829C00E76E09 /* AppDelegate.swift */; };
 		9AFC1C371BCC829C00E76E09 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFC1C361BCC829C00E76E09 /* ViewController.swift */; };
 		9AFC1C3A1BCC829C00E76E09 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9AFC1C381BCC829C00E76E09 /* Main.storyboard */; };
@@ -65,6 +66,7 @@
 		9AE803CA1BD01B0E003914FF /* PopUpViewController_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopUpViewController_iPad.xib; sourceTree = "<group>"; };
 		9AE803CD1BD01EE3003914FF /* PopUpViewController_iPhone6.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopUpViewController_iPhone6.xib; sourceTree = "<group>"; };
 		9AE803CE1BD01EE3003914FF /* PopUpViewController_iPhone6Plus.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopUpViewController_iPhone6Plus.xib; sourceTree = "<group>"; };
+		9AEE4DD31BD433BF00644522 /* PlacesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlacesViewController.swift; sourceTree = "<group>"; };
 		9AFC1C311BCC829C00E76E09 /* Recitie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Recitie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9AFC1C341BCC829C00E76E09 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9AFC1C361BCC829C00E76E09 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 				9A80B6081BCEADD90028F6D2 /* DetalheEventosViewController.swift */,
 				9A80B6061BCEA9A70028F6D2 /* EventosViewController.swift */,
 				9A10AEFE1BCD33A8000AE752 /* CadastroViewController.swift */,
+				9AEE4DD31BD433BF00644522 /* PlacesViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -364,6 +367,7 @@
 				9AE803C71BD01AE0003914FF /* PopUpViewControllerSwift.swift in Sources */,
 				9AFC1C351BCC829C00E76E09 /* AppDelegate.swift in Sources */,
 				9A80B6091BCEADD90028F6D2 /* DetalheEventosViewController.swift in Sources */,
+				9AEE4DD41BD433BF00644522 /* PlacesViewController.swift in Sources */,
 				9AE803C51BD01245003914FF /* MapViewController.swift in Sources */,
 				9A10AF031BCD4D6A000AE752 /* User.swift in Sources */,
 				9AFC1C6A1BCC84CB00E76E09 /* Places.swift in Sources */,

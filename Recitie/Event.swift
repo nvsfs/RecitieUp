@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+import MapKit
 
 class Event {
     
@@ -16,7 +16,7 @@ class Event {
     var description:String = ""
     var type:String = ""
     var organizers = [User]()
-    
+    var place:Places?
   
     
     

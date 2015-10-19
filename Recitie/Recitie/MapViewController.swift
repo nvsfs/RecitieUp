@@ -195,7 +195,7 @@ class MapViewController : UIViewController, CLLocationManagerDelegate, UIPopover
         //let ac = UIAlertController(title: placeName, message: placeInfo, preferredStyle: .Alert)
         //ac.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
         //presentViewController(ac, animated: true, completion: nil)
-        if let resultController = storyboard!.instantiateViewControllerWithIdentifier("Events") as? EventosViewController {
+        if let resultController = storyboard!.instantiateViewControllerWithIdentifier("Places") as? PlacesViewController {
             //presentViewController(resultController, animated: true, completion: nil)
             self.navigationController?.pushViewController(resultController, animated: true)
             

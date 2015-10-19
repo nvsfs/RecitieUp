@@ -17,12 +17,59 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
     var usuarios = [User]()
  
     let user:User = User()
+    
+    
+    let container = CKContainer.defaultContainer()
+    
+    func handleIdentityChanged(notification: NSNotification){
+        
+        let fileManager = NSFileManager()
+        
+        if let token = fileManager.ubiquityIdentityToken{
+            print("The new token is \(token)", terminator: "")
+        } else {
+            print("User has logged out of iCloud", terminator: "")
+        }
+    }
+    
+    /* Start listening for iCloud user change notifications */
+    func applicationBecameActive(notification: NSNotification){
+        NSNotificationCenter.defaultCenter().addObserver(self,
+            selector: "handleIdentityChanged:",
+            name: NSUbiquityIdentityDidChangeNotification,
+            object: nil)
+    }
+    
+    /* Stop listening for those notifications when the app becomes inactive */
+    func applicationBecameInactive(notification: NSNotification){
+        NSNotificationCenter.defaultCenter().removeObserver(self,
+            name: NSUbiquityIdentityDidChangeNotification,
+            object: nil)
+    }
+
+    
+    
+    
+    
     @IBAction func showHome(sender: AnyObject) {
         
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        /* Find out when the app is becoming active and inactive
+        so that we can find out when the user's iCloud logging status changes.*/
+        NSNotificationCenter.defaultCenter().addObserver(self,
+            selector: "applicationBecameActive:",
+            name: UIApplicationDidBecomeActiveNotification,
+            object: nil)
+        
+        NSNotificationCenter.defaultCenter().addObserver(self,
+            selector: "applicationBecameInactive:",
+            name: UIApplicationWillResignActiveNotification,
+            object: nil)
+
         
         if(FBSDKAccessToken.currentAccessToken() == nil)
         {
@@ -105,12 +152,6 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
                             
                             self.usuarios.append(usuario)
                             
-                            //                    let newUser = User()
-                            //                    newUser.email = email
-                            //                    newUser.name = name
-                            //                    newUser.fotoUrl = photoURL
-                            //                    newUser.id = id
-                            
                             print("-------------")
                             print(name)
                             print(email)
@@ -148,6 +189,31 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
                 })
 
                 
+                let defaultContainer: CKContainer = CKContainer.defaultContainer()
+                
+                //get the PublicDatabase inside the Container
+                let publicDatabase: CKDatabase = defaultContainer.publicCloudDatabase
+                
+                //create the target record id you will use to fetch by
+                let wellKnownID: CKRecordID = CKRecordID(recordName: "User")
+                
+                //fetch the target record using it's record id
+                publicDatabase.fetchRecordWithID(wellKnownID, completionHandler: { (record, error) -> Void in
+                    
+                    if error != nil {
+                        
+                        print("Uh oh, there was an error fetching...")
+                        print(error!.localizedDescription)
+                    }
+                    
+                    if record != nil {
+                        print("Fetched record by Id Successflly")
+                        print(record!.objectForKey("title"))
+                        print(record!.objectForKey("description"))
+                        print(record!.objectForKey("address"))
+                        print(record!.objectForKey("location"))
+                    }
+                })
               
    
                 
@@ -201,6 +267,66 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
         
     }
     
+    /* Just a little method to help us display alert dialogs to the user */
+    func displayAlertWithTitle(title: String, message: String){
+        let controller = UIAlertController(title: title,
+            message: message,
+            preferredStyle: .Alert)
+        
+        controller.addAction(UIAlertAction(title: "OK",
+            style: .Default,
+            handler: nil))
+        
+        presentViewController(controller, animated: true, completion: nil)
+        
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        container.accountStatusWithCompletionHandler{
+            (status: CKAccountStatus, error: NSError?) in
+            
+            /* Be careful, we might be on a different thread now so make sure that
+            your UI operations go on the main thread */
+            dispatch_async(dispatch_get_main_queue(), {
+                
+                var title: String!
+                var message: String!
+                
+                if error != nil{
+                    title = "Error"
+                    message = "An error occurred = \(error)"
+                } else {
+                    
+                    title = "No errors occurred"
+                    
+                    switch status{
+                    case .Available:
+                        message = "The user is logged in to iCloud"
+                    case .CouldNotDetermine:
+                        message = "Could not determine if the user is logged" +
+                        " into iCloud or not"
+                    case .NoAccount:
+                        message = "User is not logged into iCloud"
+                    case .Restricted:
+                        message = "Could not access user's iCloud account information"
+                    }
+                    
+                    self.displayAlertWithTitle(title, message: message)
+                    
+                }
+                
+            })
+            
+        }
+        
+    }
+    
+    deinit{
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
+
     
     
 }

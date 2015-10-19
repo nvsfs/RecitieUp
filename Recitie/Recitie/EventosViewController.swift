@@ -43,6 +43,7 @@ class EventosViewController: UIViewController,  UITableViewDataSource, UITableVi
                     let newEvent = Event()
                     newEvent.name = event["name"] as! String
                     newEvent.description = event["description"] as! String
+                  //  newEvent.place = (event["place"] as! Places)
                     
                     
                     self.events.append(newEvent)
@@ -56,6 +57,38 @@ class EventosViewController: UIViewController,  UITableViewDataSource, UITableVi
             
             }
         }
+        
+        //como fazer uma query
+//        
+//        let defaultContainer: CKContainer = CKContainer.defaultContainer()
+//        
+//        let publicDatabase: CKDatabase = defaultContainer.publicCloudDatabase
+//        
+//        let predicateForAddress = NSPredicate(format: "name = 'cffc'", argumentArray: nil)
+//        
+//        let query3 = CKQuery(recordType: "Place", predicate: predicateForAddress)
+//        
+//        publicDatabase.performQuery(query3, inZoneWithID: nil) { (resultsArray, queryError) -> Void in
+//            
+//            if queryError != nil {
+//                
+//                print("Uh oh, there was an error querying ...")
+//                print(queryError!.localizedDescription)
+//            }
+//            
+//            if resultsArray != nil {
+//                
+//                for result in resultsArray! {
+//                    
+//                    let record: CKRecord = result as CKRecord
+//                    print(record.objectForKey("latitude"))
+//                    print(record.objectForKey("longitude"))
+//        
+//                }
+//            }
+//        }
+//        
+        
     }
     var popViewController : PopUpViewControllerSwift = PopUpViewControllerSwift(nibName: "PopUpViewController", bundle: nil)
     
