@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CheckboxViewControllerSwift" customModule="Recitie" customModuleProvider="target">
+            <connections>
+                <outlet property="comidaCheck" destination="r41-cj-687" id="pVN-s1-8xL"/>
+                <outlet property="culturaCheck" destination="M5x-zv-BCD" id="UfL-k8-o3M"/>
+                <outlet property="encontrosCheck" destination="hI9-Kp-Z5z" id="LCF-gT-7OM"/>
+                <outlet property="esportesCheck" destination="hdO-4U-p2c" id="bGR-mb-fle"/>
+                <outlet property="exposicaoCheck" destination="kg8-zx-Ro5" id="brz-eg-TJy"/>
+                <outlet property="feirasCheck" destination="gK8-He-2ge" id="PT0-b2-sRy"/>
+                <outlet property="festasCheck" destination="goR-qR-a2t" id="nBN-th-PFk"/>
+                <outlet property="lazerCheck" destination="gmH-ds-eXa" id="PiW-sb-kLp"/>
+                <outlet property="musicaCheck" destination="41a-VB-yej" id="5eB-aE-Yig"/>
+                <outlet property="outrosCheck" destination="tCp-WA-g6B" id="Ojl-YH-M8Q"/>
+                <outlet property="popUpView" destination="HxJ-fg-egd" id="rsH-gQ-b7M"/>
+                <outlet property="showsCheck" destination="usF-Ad-GjV" id="q2f-UJ-Nqf"/>
+                <outlet property="socialCheck" destination="G5X-ev-MkS" id="eUO-wU-EKv"/>
+                <outlet property="view" destination="iN0-l3-epB" id="d82-K5-lZ7"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="CheckBox" customModule="Recitie" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HxJ-fg-egd">
+                    <rect key="frame" x="57" y="196.5" width="300" height="343"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Selecione seus interesses!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pWe-D4-M29">
+                            <rect key="frame" x="0.0" y="0.0" width="300" height="44"/>
+                            <color key="backgroundColor" red="0.70196080207824707" green="0.70196080207824707" blue="0.70196080207824707" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fcn-0r-Bpg">
+                            <rect key="frame" x="0.0" y="299" width="300" height="44"/>
+                            <color key="backgroundColor" red="0.94901960784313721" green="0.38039215686274508" blue="0.40784313725490196" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <state key="normal" title="Confirmar"/>
+                            <connections>
+                                <action selector="confirmarBox:" destination="-1" eventType="touchUpInside" id="8pg-Ax-8Cn"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6bt-wy-8Gu">
+                            <rect key="frame" x="270" y="11" width="24" height="22"/>
+                            <state key="normal" image="clear"/>
+                            <connections>
+                                <action selector="closePopup:" destination="-1" eventType="touchUpInside" id="RIb-h0-cZ0"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hdO-4U-p2c" customClass="CheckBox" customModule="Recitie" customModuleProvider="target">
+                            <rect key="frame" x="15" y="77" width="20" height="20"/>
+                            <connections>
+                                <action selector="esportesBox:" destination="-1" eventType="touchUpInside" id="UcZ-fx-gEB"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="41a-VB-yej" customClass="CheckBox" customModule="Recitie" customModuleProvider="target">
+                            <rect key="frame" x="15" y="111" width="20" height="20"/>
+                            <connections>
+                                <action selector="musicaBox:" destination="-1" eventType="touchUpInside" id="EIk-St-tzM"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="usF-Ad-GjV" customClass="CheckBox" customModule="Recitie" customModuleProvider="target">
+                            <rect key="frame" x="15" y="145" width="20" height="20"/>
+                            <connections>
+                                <action selector="showsBox:" destination="-1" eventType="touchUpInside" id="NKK-zt-nps"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r41-cj-687" customClass="CheckBox" customModule="Recitie" customModuleProvider="target">
+                            <rect key="frame" x="15" y="179" width="20" height="20"/>
+                            <connections>
+                                <action selector="comidaBox:" destination="-1" eventType="touchUpInside" id="51l-fi-2NK"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gmH-ds-eXa" customClass="CheckBox" customModule="Recitie" customModuleProvider="target">
+                            <rect key="frame" x="15" y="212" width="20" height="20"/>
+                            <connections>
+                                <action selector="lazerBox:" destination="-1" eventType="touchUpInside" id="nEO-rA-RmS"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hI9-Kp-Z5z" customClass="CheckBox" customModule="Recitie" customModuleProvider="target">
+                            <rect key="frame" x="15" y="245" width="20" height="20"/>
+                            <connections>
+                                <action selector="encontrosBox:" destination="-1" eventType="touchUpInside" id="7R9-uj-yav"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gK8-He-2ge" customClass="CheckBox" customModule="Recitie" customModuleProvider="target">
+                            <rect key="frame" x="167" y="77" width="20" height="20"/>
+                            <connections>
+                                <action selector="feirasBox:" destination="-1" eventType="touchUpInside" id="ZyA-Ku-jhm"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G5X-ev-MkS" customClass="CheckBox" customModule="Recitie" customModuleProvider="target">
+                            <rect key="frame" x="167" y="111" width="20" height="20"/>
+                            <connections>
+                                <action selector="socialBox:" destination="-1" eventType="touchUpInside" id="7fC-No-wY6"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kg8-zx-Ro5" customClass="CheckBox" customModule="Recitie" customModuleProvider="target">
+                            <rect key="frame" x="167" y="145" width="20" height="20"/>
+                            <connections>
+                                <action selector="exposiçãoBox:" destination="-1" eventType="touchUpInside" id="NT5-7u-yhx"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M5x-zv-BCD" customClass="CheckBox" customModule="Recitie" customModuleProvider="target">
+                            <rect key="frame" x="167" y="179" width="20" height="20"/>
+                            <connections>
+                                <action selector="culturaBox:" destination="-1" eventType="touchUpInside" id="7cK-80-Jdk"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="goR-qR-a2t" customClass="CheckBox" customModule="Recitie" customModuleProvider="target">
+                            <rect key="frame" x="167" y="212" width="20" height="20"/>
+                            <connections>
+                                <action selector="festasBox:" destination="-1" eventType="touchUpInside" id="WV4-BE-CyR"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tCp-WA-g6B" customClass="CheckBox" customModule="Recitie" customModuleProvider="target">
+                            <rect key="frame" x="167" y="245" width="20" height="20"/>
+                            <connections>
+                                <action selector="outrosBox:" destination="-1" eventType="touchUpInside" id="SUG-WZ-81n"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Feiras" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lmt-FH-frN">
+                            <rect key="frame" x="205" y="77" width="47" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Social" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RXF-cW-hGh">
+                            <rect key="frame" x="205" y="111" width="46" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Exposição" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Hx-2k-bA2">
+                            <rect key="frame" x="205" y="145" width="78" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Cultura" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mO7-Gn-k7U">
+                            <rect key="frame" x="205" y="179" width="56" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Festas" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fQU-mN-m8g">
+                            <rect key="frame" x="205" y="212" width="51" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Outros" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u5R-rY-g3t">
+                            <rect key="frame" x="205" y="245" width="53" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Esportes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kYV-nF-w1a">
+                            <rect key="frame" x="53" y="77" width="68" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Música" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bVJ-kk-lyQ">
+                            <rect key="frame" x="53" y="111" width="55" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Shows" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eBm-cw-uyd">
+                            <rect key="frame" x="53" y="145" width="51" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Comida" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kFC-uf-xGJ">
+                            <rect key="frame" x="53" y="179" width="59" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Lazer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LaA-XG-Er2">
+                            <rect key="frame" x="53" y="212" width="43" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Encontros" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o9g-x2-2TE">
+                            <rect key="frame" x="53" y="245" width="78" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="343" id="GLl-xt-XPB"/>
+                        <constraint firstAttribute="width" constant="300" id="Wf0-2G-koB"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.90196079015731812" green="0.90196079015731812" blue="0.90196079015731812" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="HxJ-fg-egd" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="8Bl-ag-Tfq"/>
+                <constraint firstItem="HxJ-fg-egd" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="CRC-V7-ebK"/>
+            </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+            <point key="canvasLocation" x="349" y="380"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="clear" width="16" height="16"/>
+    </resources>
+</document>

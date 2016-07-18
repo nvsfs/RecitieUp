@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -15,8 +19,66 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="BFt-wp-p3F">
+                                <rect key="frame" x="240" y="240" width="120" height="120"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="7b5-wO-RPD"/>
+                                    <constraint firstAttribute="width" secondItem="BFt-wp-p3F" secondAttribute="height" multiplier="1:1" id="OPc-c8-Ryw"/>
+                                    <constraint firstAttribute="width" secondItem="BFt-wp-p3F" secondAttribute="height" multiplier="1:1" id="TjJ-ct-Jd2"/>
+                                    <constraint firstAttribute="width" constant="120" id="nsC-8P-nsa"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="7b5-wO-RPD"/>
+                                        <exclude reference="OPc-c8-Ryw"/>
+                                        <exclude reference="nsC-8P-nsa"/>
+                                    </mask>
+                                </variation>
+                            </imageView>
+                        </subviews>
                         <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.16078431369999999" green="0.61568627450000002" blue="0.55294117649999996" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="BFt-wp-p3F" secondAttribute="centerX" multiplier="1:0.75" id="126-wo-XBS"/>
+                            <constraint firstItem="BFt-wp-p3F" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="8Ym-HZ-C4q"/>
+                            <constraint firstItem="BFt-wp-p3F" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" multiplier="1:0.5" id="9ny-0a-8G7"/>
+                            <constraint firstItem="BFt-wp-p3F" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="EUR-ge-fJr"/>
+                            <constraint firstItem="BFt-wp-p3F" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="GkI-9N-tnD"/>
+                            <constraint firstItem="BFt-wp-p3F" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="centerXWithinMargins" multiplier="0.6" id="PGe-wM-BaH"/>
+                            <constraint firstItem="BFt-wp-p3F" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="PJt-Dl-ZBy"/>
+                            <constraint firstItem="BFt-wp-p3F" firstAttribute="trailing" secondItem="Ze5-6b-2t3" secondAttribute="trailing" multiplier="1:0.5" id="SNi-SZ-pAE"/>
+                            <constraint firstItem="BFt-wp-p3F" firstAttribute="trailing" secondItem="Ze5-6b-2t3" secondAttribute="centerXWithinMargins" multiplier="1.4" id="WJ2-Cc-PoN"/>
+                            <constraint firstItem="BFt-wp-p3F" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="trailing" multiplier="1:0.5" id="X3s-bF-jcc"/>
+                            <constraint firstItem="BFt-wp-p3F" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="XfT-vr-OG2"/>
+                            <constraint firstItem="BFt-wp-p3F" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="cCG-1C-1i0"/>
+                            <constraint firstItem="BFt-wp-p3F" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="8" symbolic="YES" id="ec7-z5-kxA"/>
+                            <constraint firstItem="BFt-wp-p3F" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="fsl-zD-7Dq"/>
+                            <constraint firstAttribute="trailing" secondItem="BFt-wp-p3F" secondAttribute="trailing" multiplier="1:2" id="j2a-Ic-npV"/>
+                            <constraint firstItem="BFt-wp-p3F" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="mhz-Bp-jOl"/>
+                            <constraint firstItem="BFt-wp-p3F" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" multiplier="1:2" id="olD-qa-6uC"/>
+                            <constraint firstItem="BFt-wp-p3F" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" multiplier="1:0.75" id="olr-PN-WGq"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="126-wo-XBS"/>
+                                <exclude reference="8Ym-HZ-C4q"/>
+                                <exclude reference="9ny-0a-8G7"/>
+                                <exclude reference="EUR-ge-fJr"/>
+                                <exclude reference="GkI-9N-tnD"/>
+                                <exclude reference="PJt-Dl-ZBy"/>
+                                <exclude reference="SNi-SZ-pAE"/>
+                                <exclude reference="X3s-bF-jcc"/>
+                                <exclude reference="XfT-vr-OG2"/>
+                                <exclude reference="cCG-1C-1i0"/>
+                                <exclude reference="ec7-z5-kxA"/>
+                                <exclude reference="j2a-Ic-npV"/>
+                                <exclude reference="mhz-Bp-jOl"/>
+                                <exclude reference="olD-qa-6uC"/>
+                                <exclude reference="olr-PN-WGq"/>
+                            </mask>
+                        </variation>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -24,4 +86,7 @@
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="logo" width="77" height="75"/>
+    </resources>
 </document>

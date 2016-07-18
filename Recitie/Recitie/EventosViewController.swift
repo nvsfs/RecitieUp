@@ -9,6 +9,7 @@
 
 import UIKit
 import CloudKit
+import Parse
 
 class EventosViewController: UIViewController,  UITableViewDataSource, UITableViewDelegate{
     
@@ -17,10 +18,10 @@ class EventosViewController: UIViewController,  UITableViewDataSource, UITableVi
     
     
     var eventos: [(name:String, numero:String)] = []
-   
+    
     var events:[Event] = []
     
-    var e1:Event = Event()
+    //var e1:Event = Event()
     
     var teste:Event?
     
@@ -29,67 +30,45 @@ class EventosViewController: UIViewController,  UITableViewDataSource, UITableVi
         
         super.viewDidLoad()
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "recieveEvent:", name: "eventPosted", object: nil)
-
+       
+        let query = PFQuery(className:"Event")
         
-        let container = CKContainer.defaultContainer()
-        let publicData = container.publicCloudDatabase
-        
-        let query = CKQuery(recordType: "Events", predicate: NSPredicate(format: "TRUEPREDICATE", argumentArray: nil))
-        publicData.performQuery(query, inZoneWithID: nil){ results, error in
-            
+        query.findObjectsInBackgroundWithBlock { (objects: [PFObject]?, error: NSError?) -> Void in
             if error == nil {
-                
-                for event in results! {
-                    let newEvent = Event()
-                    newEvent.name = event["name"] as! String
-                    newEvent.description = event["description"] as! String
-                  //  newEvent.place = (event["place"] as! Places)
+                for object in objects! {
+                    //print(object.objectId)
+                    //print(object["user"])
                     
+                    //let nome = object["place"]["name"]
+                    print("antes")
+                    
+                    let place = Places(objectId: object.objectId!, title: object["place"]["name"] as! String, coordinate: CLLocationCoordinate2D(latitude: object["place"]["latitude"] as! Double, longitude: object["place"]["longitude"] as! Double), info: object["place"]["description"] as! String)
+                    
+                    
+                    let newEvent: Event = Event(name: object["name"] as! String, description: object["description"] as! String, place: place, type: object["type"] as! String, organizers: object["user"] as! PFUser, interests: object["interests"] as! [String])
                     
                     self.events.append(newEvent)
-                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                        self.eventostableview.reloadData()
+                    print("depois")
+                    print("eventos")
+                    //print(self.events)
                     
-                })
+                    self.eventostableview.reloadData()
+                    //                    dispatch_async(
+                    //                        dispatch_get_main_queue(), {()-> Void in
+                    //                            self.eventostableview.reloadData()
+                    //                    })
+                }
+            } else {
+                print(error)
             }
         }
-            else {
-            
-            }
-        }
+        print(events)
         
-        //como fazer uma query
-//        
-//        let defaultContainer: CKContainer = CKContainer.defaultContainer()
-//        
-//        let publicDatabase: CKDatabase = defaultContainer.publicCloudDatabase
-//        
-//        let predicateForAddress = NSPredicate(format: "name = 'cffc'", argumentArray: nil)
-//        
-//        let query3 = CKQuery(recordType: "Place", predicate: predicateForAddress)
-//        
-//        publicDatabase.performQuery(query3, inZoneWithID: nil) { (resultsArray, queryError) -> Void in
-//            
-//            if queryError != nil {
-//                
-//                print("Uh oh, there was an error querying ...")
-//                print(queryError!.localizedDescription)
-//            }
-//            
-//            if resultsArray != nil {
-//                
-//                for result in resultsArray! {
-//                    
-//                    let record: CKRecord = result as CKRecord
-//                    print(record.objectForKey("latitude"))
-//                    print(record.objectForKey("longitude"))
-//        
-//                }
-//            }
-//        }
-//        
         
     }
+    
+    
+    
     var popViewController : PopUpViewControllerSwift = PopUpViewControllerSwift(nibName: "PopUpViewController", bundle: nil)
     
     
@@ -104,7 +83,7 @@ class EventosViewController: UIViewController,  UITableViewDataSource, UITableVi
         //{
         if UIScreen.mainScreen().bounds.size.width > 320 {
             if UIScreen.mainScreen().scale == 3 {
-                self.popViewController = PopUpViewControllerSwift(nibName: "PopUpViewController_iPhone6Plus", bundle: nil)
+                self.popViewController = PopUpViewControllerSwift(nibName: "PopUpViewController_iPhone6Plus_novo", bundle: nil)
                 self.popViewController.title = "This is a popup view"
                 self.popViewController.showInView(self.view, withImage: UIImage(named: "typpzDemo"), withMessage: "iphone 6+", animated: true)
             } else {
@@ -122,29 +101,14 @@ class EventosViewController: UIViewController,  UITableViewDataSource, UITableVi
     
     
     func recieveEvent(sender: NSNotification) {
-    
-        let container = CKContainer.defaultContainer()
-        let publicData = container.publicCloudDatabase
         
         let info = sender.userInfo!
         let event = info["event"] as! Event
         events.append(event)
-        
-        
-        let record = CKRecord(recordType: "Events")
-        record.setValue(event.name, forKey: "name")
-        record.setValue(event.description, forKey: "description")
-        
-        publicData.saveRecord(record, completionHandler: { record, error in
-            if error != nil{
-                print(error)
-            }
-        })
-        
-        
+  
         eventostableview.reloadData()
     }
-
+    
     
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -165,18 +129,18 @@ class EventosViewController: UIViewController,  UITableViewDataSource, UITableVi
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-       
+        
         
         if segue.identifier == "showDetalhe"{
-        let dtVC = segue.destinationViewController as! DetalheEventosViewController
-        
-        let idxPath = eventostableview.indexPathForCell(sender as! UITableViewCell) as NSIndexPath?
-        
-        dtVC.eventoteste = events[idxPath!.row]
-
+            let dtVC = segue.destinationViewController as! DetalheEventosViewController
+            
+            let idxPath = eventostableview.indexPathForCell(sender as! UITableViewCell) as NSIndexPath?
+            
+            dtVC.eventoteste = events[idxPath!.row]
+            
         }
-
+        
     }
     
-
 }
+

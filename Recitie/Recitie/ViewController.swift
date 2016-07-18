@@ -15,11 +15,11 @@ import CloudKit
 class ViewController: UIViewController, FBSDKLoginButtonDelegate {
     
     var usuarios = [User]()
- 
+    
     let user:User = User()
     
     
-    let container = CKContainer.defaultContainer()
+    //  let container = CKContainer.defaultContainer()
     
     func handleIdentityChanged(notification: NSNotification){
         
@@ -46,7 +46,7 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
             name: NSUbiquityIdentityDidChangeNotification,
             object: nil)
     }
-
+    
     
     
     
@@ -69,7 +69,7 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
             selector: "applicationBecameInactive:",
             name: UIApplicationWillResignActiveNotification,
             object: nil)
-
+        
         
         if(FBSDKAccessToken.currentAccessToken() == nil)
         {
@@ -82,12 +82,12 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
         }
         else{
             returnUserData()
-
+            
             print("Logged in...")
             
             
         }
-
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -95,10 +95,10 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-        func returnUserData()
+    func returnUserData()
     {
         print("returnUserData")
-       
+        
         
         let graphRequest : FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "/me?fields=picture", parameters: ["fields":"id,email,name,first_name,last_name,gender,bio,age_range,about,context,currency,devices,education,favorite_athletes,favorite_teams,hometown,cover,picture"], HTTPMethod: "GET")
         graphRequest.startWithCompletionHandler({ (connection, result, error) -> Void in
@@ -167,19 +167,19 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
                     
                     
                     if(teste == true){
-                    
-                    //print(result.valueForKey("id"))
-                    let record = CKRecord(recordType: "User")
-                    record.setValue(self.user.name, forKey: "name")
-                    record.setValue(self.user.email, forKey: "email")
-                    record.setValue(self.user.fotoUrl, forKey: "photoURL")
-                    record.setObject(self.user.id, forKey: "id")
-                    
-                    publicData.saveRecord(record, completionHandler: { record, error in
-                        if error != nil {
-                            print(error)
-                        }
-                    })
+                        
+                        //print(result.valueForKey("id"))
+                        let record = CKRecord(recordType: "User")
+                        record.setValue(self.user.name, forKey: "name")
+                        record.setValue(self.user.email, forKey: "email")
+                        record.setValue(self.user.fotoUrl, forKey: "photoURL")
+                        record.setObject(self.user.id, forKey: "id")
+                        
+                        publicData.saveRecord(record, completionHandler: { record, error in
+                            if error != nil {
+                                print(error)
+                            }
+                        })
                         
                     }
                     
@@ -187,7 +187,7 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
                     
                     
                 })
-
+                
                 
                 let defaultContainer: CKContainer = CKContainer.defaultContainer()
                 
@@ -214,8 +214,8 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
                         print(record!.objectForKey("location"))
                     }
                 })
-              
-   
+                
+                
                 
                 NSNotificationCenter.defaultCenter().postNotificationName("userInfoPosted", object: self, userInfo: ["userInfo" : self.user])
                 
@@ -227,11 +227,11 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
         })
     }
     
-
-  
+    
+    
     
     func verificarDisponibilidade() -> Bool{
-    
+        
         for var index:Int = 1 ; index < self.usuarios.count ;index++ {
             
             
@@ -244,10 +244,10 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
         }
         
         return true
-
-    
+        
+        
     }
-
+    
     func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!) {
         
         if error == nil
@@ -284,49 +284,14 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
-        container.accountStatusWithCompletionHandler{
-            (status: CKAccountStatus, error: NSError?) in
-            
-            /* Be careful, we might be on a different thread now so make sure that
-            your UI operations go on the main thread */
-            dispatch_async(dispatch_get_main_queue(), {
-                
-                var title: String!
-                var message: String!
-                
-                if error != nil{
-                    title = "Error"
-                    message = "An error occurred = \(error)"
-                } else {
-                    
-                    title = "No errors occurred"
-                    
-                    switch status{
-                    case .Available:
-                        message = "The user is logged in to iCloud"
-                    case .CouldNotDetermine:
-                        message = "Could not determine if the user is logged" +
-                        " into iCloud or not"
-                    case .NoAccount:
-                        message = "User is not logged into iCloud"
-                    case .Restricted:
-                        message = "Could not access user's iCloud account information"
-                    }
-                    
-                    self.displayAlertWithTitle(title, message: message)
-                    
-                }
-                
-            })
-            
-        }
+        
         
     }
     
     deinit{
         NSNotificationCenter.defaultCenter().removeObserver(self)
     }
-
+    
     
     
 }

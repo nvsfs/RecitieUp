@@ -8,16 +8,26 @@
 
 import Foundation
 import MapKit
+import Parse
 
 class Event {
     
-    var interests = [Interest]()
+    var interests = [String]()
     var name:String =  ""
     var description:String = ""
     var type:String = ""
-    var organizers = [User]()
-    var place:Places?
-  
+    var organizers = PFUser()
+    var place : Places!
     
+    init(name: String, description: String, place: Places, type: String, organizers: PFUser, interests: [String]) {
+     
+        self.name = name
+        self.description = description
+        self.place = place
+        self.type = type
+        self.organizers = organizers
+        self.interests = interests
+    }
+
     
 }
